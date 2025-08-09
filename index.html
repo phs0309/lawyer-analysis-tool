@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>악플 법적 책임 분석기</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛡️ 악플 법적 책임 분석기</h1>
+            <p>악플이나 사이버 괴롭힘을 당했나요? 법적 대응 방안을 확인해보세요.</p>
+        </header>
+
+        <div class="input-section">
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab('text')">텍스트 입력</button>
+                <button class="tab" onclick="switchTab('image')">사진 업로드</button>
+            </div>
+
+            <div id="text-input" class="input-method active">
+                <textarea id="maliciousText" placeholder="악플 내용을 입력해주세요..." rows="6"></textarea>
+                
+                <div class="toggle-options">
+                    <div class="toggle-group">
+                        <label class="toggle-label">
+                            <span>실제 인물을 향한 게시물인가요?</span>
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="targetRealPerson">
+                                <span class="slider"></span>
+                            </div>
+                        </label>
+                    </div>
+                    
+                    <div class="toggle-group">
+                        <label class="toggle-label">
+                            <span>허위사실 유포인가요?</span>
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="containsFalseInfo">
+                                <span class="slider"></span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                
+                <button onclick="analyzeText()">AI 법적 분석하기</button>
+            </div>
+
+            <div id="image-input" class="input-method">
+                <div class="upload-area" onclick="document.getElementById('imageFile').click()">
+                    <p>📷 사진을 클릭하여 업로드하세요</p>
+                    <input type="file" id="imageFile" accept="image/*" style="display: none" onchange="handleImageUpload(event)">
+                </div>
+                
+                <div class="toggle-options">
+                    <div class="toggle-group">
+                        <label class="toggle-label">
+                            <span>실제 인물을 향한 게시물인가요?</span>
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="targetRealPersonImg">
+                                <span class="slider"></span>
+                            </div>
+                        </label>
+                    </div>
+                    
+                    <div class="toggle-group">
+                        <label class="toggle-label">
+                            <span>허위사실 유포인가요?</span>
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="containsFalseInfoImg">
+                                <span class="slider"></span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                
+                <button onclick="analyzeImage()" id="analyzeImageBtn" disabled>AI 이미지 분석하기</button>
+            </div>
+        </div>
+
+        <div id="results" class="results-section" style="display: none;">
+            <h2>📋 법적 분석 결과</h2>
+            <div id="analysis-content"></div>
+        </div>
+
+
+        <div class="disclaimer">
+            <h3>⚖️ 면책 조항</h3>
+            <p>본 서비스는 일반적인 법적 정보만을 제공하며, 구체적인 법률 상담을 대체할 수 없습니다. 
+            실제 법적 분쟁 시에는 전문 변호사와 상담하시기 바랍니다.</p>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
