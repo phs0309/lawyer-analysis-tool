@@ -1,7 +1,7 @@
 // 배포용 설정 파일
 const CONFIG = {
     // Claude API 키 - 실제 배포시에는 여기에 실제 API 키를 입력하세요
-    CLAUDE_API_KEY: 'sk-ant-api-your-key-here',
+    CLAUDE_API_KEY: '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',
     
     // API 엔드포인트
     CLAUDE_API_URL: 'https://api.anthropic.com/v1/messages',
